@@ -1,49 +1,46 @@
-# DAA
+# DAA			
 #include<stdio.h>
 #include<stdlib.h>
-
+//#include<time.h>
 void main()
 {
-	int n,i,j,lar,key;
-	printf("Enter the number of elements in the array:");
+	int i,n,key,del,max;
+	printf("Enter the number of elements:");
 	scanf("%d",&n);
 	int arr[n];
+	//srand(time(0));
 	for(i=0;i<n;i++)
 	{
-		scanf("%d",&arr[i]);
+		printf("%d ",arr[i]=rand()%100);
 	}
-	
-	printf("Enter the element to be deleted:");
+	printf("\nEnter the position to be deleted:");
 	scanf("%d",&key);
-	
+	del=arr[key];
+	for(i=key;i<n;i++)
+	{
+		arr[i]=arr[i+1];
+	}
 	for(i=0;i<n;i++)
 	{
-		if(arr[i]==key)
+		if(arr[i]>del)
 		{
-			arr[i]=0;
-		}
-	}
-	lar=key;
-	for(i=1;i<n;i++)
-	{
-		if(arr[i]>lar)
-		{
-			lar=arr[i];
+			max=arr[i];
 		}
 	}
 	for(i=0;i<n;i++)
 	{
-		if(arr[i]>key)
+		if(arr[i]>del)
 		{
-			if(arr[i]<=lar)
+			if(arr[i]<max)
 			{
-				lar=arr[i];
+				max=arr[i];
 			}
 		}
 	}
-	printf("Element returned is:%d",lar);
-
-	
+	for(i=0;i<n-1;i++)
+	{
+		printf("%d ",arr[i]);
+	}
+	printf("\nNext element:%d",max);
 }
-			
 
